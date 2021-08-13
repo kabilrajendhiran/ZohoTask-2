@@ -40,16 +40,7 @@ public class TicketManager {
         return dateTime.isAfter(LocalDateTime.now()) && ticket1!=null;
     }
 
-    public void invalidateTicket(String ticketId)
-    {
-        try {
 
-            Ticket ticket = dbContext.getTicket(ticketId);
-            dbContext.invalidateTicket(ticket);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void removeTicket(String tickedId)
     {

@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
 	AuthDatabaseContext database = new AuthDatabaseContext();
 	TicketManager ticketManager = new TicketManager();
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
 		String email = request.getParameter("uname");
 		String password = request.getParameter("pass");
@@ -38,10 +38,7 @@ public class Login extends HttpServlet {
 
 				response.addCookie(cookie);
 
-				RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
-				rd.forward(request,response);
-
-				/*response.sendRedirect("welcome.jsp");*/
+				response.sendRedirect("welcome.jsp");
 			}
 			else {
 				request.setAttribute("errormsg", res);

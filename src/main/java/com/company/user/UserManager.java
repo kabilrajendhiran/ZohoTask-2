@@ -11,7 +11,7 @@ public class UserManager {
     {
         User user = null;
         try {
-            authDatabaseContext.getUser(emailID);
+          user = authDatabaseContext.getUser(emailID);
         } catch (SQLException e) {
             e.printStackTrace();
         }

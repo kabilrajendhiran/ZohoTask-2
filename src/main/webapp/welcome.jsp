@@ -1,6 +1,8 @@
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="com.company.ticket.CookieManager" %>
 <%@ page import="com.company.auth.AuthFilter" %>
+<%@ page import="com.company.user.User" %>
+<%@ page import="com.company.user.UserManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,24 +17,10 @@
         response.setHeader("Cache-Control","no-cache, no-store, must-revalidate");
         boolean flag = af.doFilter(request);
 
-        /*Cookie[] cookies = request.getCookies();
-
-        if(cookies!=null)
-        {
-            for (Cookie cookie: cookies) {
-                if(cookie.getName().equals("auth") && !(cookie.getValue()==null || cookie.getValue().isEmpty()))
-                {
-                    if(cookieManager.validateAuthCookie(cookie))
-                    {
-                        flag = true;
-                    }
-                }
-            }
-        }*/
-
         if(!flag)
         {
             response.sendRedirect("login.jsp");
+            return;
         }
     %>
 
@@ -46,6 +34,27 @@
                 <form action="Logout" method="get">
                     <input class="btn btn-danger" type="submit" value="Logout">
                 </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <%
+                    CookieManager cookieManager = new CookieManager();
+                    UserManager userManager = new UserManager();
+
+                    String tickedID = cookieManager.getAuthCookieValue(request.getCookies());
+                    String email = userManager.getUserEmailIdFromTicketId(tickedID);
+                    User user = userManager.getUser(email);
+
+
+                    out.write("<div>"+ Encode.forHtml(user.getFirstname())+" ");
+                    out.write(Encode.forHtml(user.getLastname()) +"</div>");
+                    out.write("<div>"+ Encode.forHtml(user.getEmail()) +"</div>");
+
+
+                %>
+
+
             </div>
         </div>
 

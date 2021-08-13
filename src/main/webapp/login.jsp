@@ -1,4 +1,3 @@
-<%@ page import="com.company.ticket.CookieManager" %>
 <%@ page import="com.company.auth.AuthFilter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -24,9 +23,9 @@
         <div class="col"></div>
         <div class="col">
             <form action="Login" method="post" onsubmit="return validateLogin();">
-                <label class="form-label">User name</label>
+                <label for="uname" class="form-label">User name</label>
                 <input type="text" name="uname" id="uname" class="form-control">
-                <label class="form-label">Password</label>
+                <label for="pass" class="form-label">Password</label>
                 <input type="password" name="pass" id="pass" class="form-control">
                 <div class="text-center mt-2">
                     <input class="btn btn-success" type="submit" value="login">

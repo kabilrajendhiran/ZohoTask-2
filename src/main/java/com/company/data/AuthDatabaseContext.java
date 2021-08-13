@@ -40,15 +40,6 @@ public class AuthDatabaseContext {
 
 	}
 
-	public void invalidateTicket(Ticket ticket) throws SQLException {
-		Connection connection = DBConfig.INSTANCE.getConnection();
-		String sql = "UPDATE ticket SET isValid = false WHERE `ticket_id` =?";
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setString(1,ticket.getTicketId());
-		preparedStatement.execute();
-		connection.close();
-	}
-
 	public Ticket getTicket(String ticketId) throws SQLException {
 		Connection connection = DBConfig.INSTANCE.getConnection();
 		PreparedStatement stmt = connection.prepareStatement("select * from ticket where ticket_id=?;");
