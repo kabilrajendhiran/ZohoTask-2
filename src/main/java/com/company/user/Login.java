@@ -12,9 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 
-
-
-@WebServlet("/Login")
 public class Login extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -31,14 +28,11 @@ public class Login extends HttpServlet {
 			String res = database.login(email, password);
 			if(res.equals("Logged in succesfully"))
 			{
-
 				Cookie cookie = new Cookie("auth", ticketManager.createTicket(email));
 				cookie.setHttpOnly(true);
-				cookie.setSecure(true);
-
 				response.addCookie(cookie);
-
-				response.sendRedirect("welcome.jsp");
+				response.sendRedirect("Home");
+				/*request.getRequestDispatcher("/Home").forward(request,response);*/
 			}
 			else {
 				request.setAttribute("errormsg", res);

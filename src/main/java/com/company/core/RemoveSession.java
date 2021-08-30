@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/RemoveSession")
+
 public class RemoveSession extends HttpServlet {
     AuthFilter authFilter = new AuthFilter();
     @Override

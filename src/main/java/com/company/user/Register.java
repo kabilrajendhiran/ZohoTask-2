@@ -1,5 +1,6 @@
-package com.company.auth;
+package com.company.user;
 
+import com.company.auth.Auth;
 import com.company.data.AuthDatabaseContext;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-@WebServlet("/Register")
+
 public class Register extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

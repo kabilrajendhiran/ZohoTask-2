@@ -53,13 +53,19 @@
       <version>8.0.26</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.7</version>
+    </dependency>
+
 
 
 
   </dependencies>
 
   <build>
-    <finalName>ZohoTask-2</finalName>
+    <finalName>mywebapp</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

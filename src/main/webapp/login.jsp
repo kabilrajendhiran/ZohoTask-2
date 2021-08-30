@@ -14,7 +14,7 @@
     boolean flag = authFilter.doFilter(request);
     if(flag)
     {
-        response.sendRedirect("welcome.jsp");
+        response.sendRedirect("Home");
     }
 %>
 
@@ -22,7 +22,8 @@
     <div class="row">
         <div class="col"></div>
         <div class="col">
-            <form action="Login" method="post" onsubmit="return validateLogin();">
+
+            <form action="${pageContext.request.contextPath}/Login" method="post" onsubmit="return validateLogin();">
                 <label for="uname" class="form-label">User name</label>
                 <input type="text" name="uname" id="uname" class="form-control">
                 <label for="pass" class="form-label">Password</label>
@@ -33,6 +34,7 @@
                 </div>
 
             </form>
+
 
             <div>
                 <h3>
@@ -49,6 +51,7 @@
     </div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous" ></script>
 </body>
 </html>
